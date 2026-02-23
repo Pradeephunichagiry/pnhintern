@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if a user is an educator
+    function isEducator(userId) {
+      return get(/databases/$(database)/documents/users/$(userId)).data.role == 'educator';
+    }
+
+    // Helper function to check if a student belongs to an educator
+    function isMyStudent(studentId, educatorId) {
+      return get(/databases/$(database)/documents/users/$(studentId)).data.educatorId == educatorId;
+    }
+
+    // Users can read their own data. Educators can read data of their students.
+    match /users/{userId} {
+      allow read: if request.auth.uid == userId || isEducator(request.auth.uid) && isMyStudent(userId, request.auth.uid);
+      allow write: if request.auth.uid == userId;
+    }
+
+    // Educators can create/update/delete challenges. Students can only read them.
+    match /challenges/{challengeId} {
+      allow read: if request.auth != null;
+      allow write: if isEducator(request.auth.uid);
+    }
+    
+    // Students can create/update their own submissions. 
+    // Educators can read/update submissions from their own students.
+    match /submissions/{submissionId} {
+      allow read, update: if request.auth != null && 
+                           (resource.data.studentId == request.auth.uid || 
+                           (isEducator(request.auth.uid) && isMyStudent(resource.data.studentId, request.auth.uid)));
+      allow create: if request.auth != null && request.resource.data.studentId == request.auth.uid;
+    }
+  }
+}
+
+    

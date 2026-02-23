@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calci</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Calci</h1>
+            <input type="number" name="num1" placeholder="Number 1" value="{{num1}}">
+            <br><br>
+            
+            <input type="number" name="num2" placeholder="Number 2" value="{{num2}}">
+            <br><br>
+
+            <button type="submit" name="op" value="add">+</button>
+            <button type="submit" name="op" value="sub">-</button>
+            <button type="submit" name="op" value="mul">×</button>
+            <button type="submit" name="op" value="div">÷</button>
+            <br><br>
+
+            <p>Result:</p>
+            <input type="text" name="result" value="{{result}}" readonly>
+        </center>
+    </form>
+</body>
+</html>

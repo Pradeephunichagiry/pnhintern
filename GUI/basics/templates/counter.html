@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter page</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+        <h1>counter</h1>
+        <table>
+            <tr>
+                <td>
+                    <button style="color:blueviolet;" type="submit"name="increment">increment</button>
+                    <button style="color:brown;" type="submit"name="decrement">decrement</button>
+                    <button style="color:chocolate;="submit"name="reset">reset</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number"value="{{result}}"name="result">
+                </td>
+            </tr>
+        </table>
+        </center>
+    </form>
+</body>
+</html>
