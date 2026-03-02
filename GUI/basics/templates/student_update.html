@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student update page</title>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>student details</h1>
+            <table>
+                <tr>
+                    <td>
+                        student name:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getstudent.name}}" name="name">
+                    </td>
+                    <td>
+                        student usn:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getstudent.usn}}" name="usn">
+                    </td>
+                    <td>
+                        student branch:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getstudent.branch}}" name="branch">
+                    </td>
+                    <td>
+                        student sem:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getstudent.sem}}" name="sem">
+                    </td>
+                    <td>
+                        student phn no:
+                    </td>
+                    <td>
+                        <input type="number" value="{{getstudent.phn_no}}" name="phn_no">
+                    </td>
+                    <td>
+                        student email:
+                    </td>
+                    <td>
+                        <input type="email" value="{{getstudent.email}}" name="email">
+                    </td>
+                    <td>
+                        <button style="color:green" type="submit" name="update">update</button>
+                    </td>
+                    <td>
+                        {{result}}
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+
+{% endblock %}

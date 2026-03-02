@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,12 @@
 </head>
 <body>
     <form>
+        <center>
         <h1>press the button</h1>
         <button style="color:green;" type="submit"name="state"value="0">led off</button>
          <button style="color:red;" type="submit"name="state"value="0">led off</button>
     </form>
+    </center>
     
 </body>
-</html>
+{% endblock %}

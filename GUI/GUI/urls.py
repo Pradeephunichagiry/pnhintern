@@ -26,4 +26,18 @@ urlpatterns = [
     path("led/",led, name="led"),
     path("counter/",counter, name="counter"),
     path("calci/",calci_view, name="calci"),
+    path("callci/",callci_view, name="callci"),
+    path("login/",login_view, name="login"),
+    path("Employee/",Employee, name="Employee"),
+    path("student/",student, name="student"),
+    path("Employee_view/",Employee_view, name="Employee_view"),
+    path("Employee_update/<id>/",Employee_update, name="Employee_update"),
+    path("student_view/", student_view, name="student_view"),
+    path("student_update/<id>/", student_update, name="student_update"),
+    path("Employee_delete/<id>/", Employee_delete, name="Employee_delete"),
+    path("student_delete/<id>/", student_delete, name="student_delete"),
+    path("index/",index, name="index"),
+    path("signup/",signupPage, name="signup"),
+    path("logout/",logoutPage, name="logout"),
+    
 ]

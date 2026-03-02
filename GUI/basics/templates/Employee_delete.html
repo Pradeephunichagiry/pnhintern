@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Employee Details</h1>
+            <table>
+                <tr>
+                    <td>
+                        Employee Name:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_name}}" name="EMP_name">
+                    </td>
+                    <td>
+                        Employee Designation:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_DES}}" name="EMP_DES">
+                    </td>
+                    <td>
+                        Employee Place:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_place}}" name="EMP_place">
+                    </td>
+                    <td>
+                        Employee Age:
+                    </td>
+                    <td>
+                        <input type="number" value="{{getEmployee.EMP_age}}" name="EMP_age">
+                    </td>
+                    <td>
+                        Employee Salary:
+                    </td>
+                    <td>
+                        <input type="number" value="{{getEmployee.EMP_salary}}" name="EMP_salary">
+                    </td>
+                    <td>
+                        <button style:"color:red" type="submit" name="delete">delete</button>
+                    </td>
+                    <td>
+                        {{result}}
+                    </td>
+                    
+                </tr>
+            </table>
+    </form>
+</body>
+{% endblock %}

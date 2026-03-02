@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student view page</title>
+</head>
+<body>
+   <form method="POST">
+    {% csrf_token %}
+    <center>
+        <h1>student details</h1>
+        <table>
+            <tr>
+                <td>
+                    student name:
+                </td>
+                <td>
+                    student usn:
+                </td>
+                <td>
+                    student branch:
+                </td>
+                <td>
+                    student sem:
+                </td>
+                <td>
+                    student phn no:
+                </td>
+                <td>
+                    student email:
+                </td>
+            </tr>
+            {% for s in getstudent %}
+            <tr>
+                <td>
+                    {{s.name}}
+                </td>
+                <td>
+                    {{s.usn}}
+                </td>
+                <td>
+                    {{s.branch}}
+                </td>
+                <td>
+                    {{s.sem}}
+                </td>
+                <td>
+                    {{s.phn_no}}
+                </td>
+                <td>
+                    {{s.email}}
+                </td>
+                <td>
+                    <a href="/student_update/{{s.id}}" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a href="/student_delete/{{s.id}}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center> 
+   </form>
+</body>
+{% endblock %}

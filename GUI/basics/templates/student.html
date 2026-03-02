@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Student Details</h1>
+            
+            <table border="0">
+                <tr>
+                    <td>
+                        <input type="text" name="name" value="{{name}}" placeholder="Student Name"><br><br>
+                        <input type="number" name="phn_no" value="{{phn_no}}" placeholder="Student Phn No"><br><br>
+                        <input type="text" name="branch" value="{{branch}}" placeholder="Student Branch"><br><br>
+                        <input type="text" name="usn" value="{{usn}}" placeholder="Student USN"><br><br>
+                        <input type="text" name="sem" value="{{sem}}" placeholder="Student Sem"><br><br>
+                        <input type="email" name="email" value="{{email}}" placeholder="Student Email"><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="save">Save</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b style="color: green;">{{result}}</b>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+{% endblock %}

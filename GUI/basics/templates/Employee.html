@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Update</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Employee Details</h1>
+            <table border="0">
+                <tr>
+                    <td>
+                        <input type="text" name="EMP_name" placeholder="Employee Name" value="{{getEmployee.EMP_name}}">
+                        <br><br>
+                        <input type="text" name="EMP_DES" placeholder="Employee Designation" value="{{getEmployee.EMP_DES}}">
+                        <br><br>
+                        <input type="text" name="EMP_place" placeholder="Employee Place" value="{{getEmployee.EMP_place}}">
+                        <br><br>
+                        <input type="number" name="EMP_age" placeholder="Employee Age" value="{{getEmployee.EMP_age}}">
+                        <br><br>
+                        <input type="number" name="EMP_salary" placeholder="Employee Salary" value="{{getEmployee.EMP_salary}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit">Save Changes</button>
+                    </td>
+                    <td>
+                        <b style="color: green;">{{result}}</b>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee view page</title>
+</head>
+<body>
+   <form method="POST">
+    {% csrf_token %}
+    <center>
+        <h1>Employee Details</h1>
+        <table>
+            <tr>
+                <td>
+                    Employee Name:
+                </td>
+                <td>
+                    Employee Designation:
+                </td>
+                <td>
+                    Employee Place:
+                </td>
+                <td>
+                    Employee Age:
+                </td>
+                <td>
+                    Employee Salary:
+                </td>
+            </tr>
+            {% for Employee in getEmployee %}
+            <tr>
+                <td>
+                    {{Employee.EMP_name}}
+                </td>
+                <td>
+                    {{Employee.EMP_DES}}
+                </td>
+                <td>
+                    {{Employee.EMP_place}}
+                </td>
+                <td>
+                    {{Employee.EMP_age}}
+                </td>
+                <td>
+                    {{Employee.EMP_salary}}
+                </td>
+                <td>
+                    <a href="/Employee_update/{{Employee.id}}" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a href="/Employee_delete/{{Employee.id}}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center> 
+</body>
+{% endblock %}
